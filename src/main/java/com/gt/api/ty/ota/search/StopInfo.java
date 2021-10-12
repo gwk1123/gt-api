@@ -1,4 +1,4 @@
-package com.gt.api.ota.search;
+package com.gt.api.ty.ota.search;
 
 import lombok.Data;
 

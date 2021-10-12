@@ -1,10 +1,10 @@
 package com.gt.api.ty.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.gt.api.ota.search.PriceInfo;
-import com.gt.api.ota.search.Routing;
-import com.gt.api.ota.search.SearchResponse;
-import com.gt.api.ota.search.StopInfo;
+import com.gt.api.ty.ota.search.PriceInfo;
+import com.gt.api.ty.ota.search.Routing;
+import com.gt.api.ty.ota.search.SearchResponse;
+import com.gt.api.ty.ota.search.StopInfo;
 import com.gt.api.ty.service.SearchService;
 import com.gt.api.ty.vo.search.*;
 import com.gt.api.utils.HttpRequestUtil;

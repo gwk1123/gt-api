@@ -1,7 +1,7 @@
 package com.gt.api.ty.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.gt.api.ota.search.SearchResponse;
+import com.gt.api.ty.ota.search.SearchResponse;
 import com.gt.api.ty.service.SearchService;
 import com.gt.api.ty.vo.search.SearchRequestDto;
 import org.slf4j.Logger;
