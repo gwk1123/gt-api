@@ -1,8 +1,8 @@
 package com.gt.api.jp.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.gt.api.jp.ota.search.SearchRequest;
 import com.gt.api.jp.service.JpSearchService;
-import com.gt.api.jp.vo.search.JpSearchRequest;
 import com.gt.api.jp.vo.search.SearchRequestDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,13 +23,15 @@ public class JpSearchController {
     @PostMapping("/search")
     public Object search(@RequestBody String str) {
         logger.info("search请求参数:{}",str);
-        SearchRequestDto searchRequestDto= transformSearchRequest( str);
-        return jpSearchService.search(JSON.toJSONString(searchRequestDto));
+        SearchRequest searchRequestDto= transformSearchRequest( str);
+        String result = jpSearchService.search(JSON.toJSONString(searchRequestDto));
+        logger.info("search返回报文:{}",result);
+        return result;
     }
 
-    public SearchRequestDto transformSearchRequest(String str){
-        JpSearchRequest jpSearchRequest = JSON.parseObject(str,JpSearchRequest.class);
-        SearchRequestDto searchRequestDto =new SearchRequestDto();
+    public SearchRequest transformSearchRequest(String str){
+        SearchRequestDto jpSearchRequest = JSON.parseObject(str, SearchRequestDto.class);
+        SearchRequest searchRequestDto =new SearchRequest();
         searchRequestDto.setAdultNumber(1);
         searchRequestDto.setFromCity(jpSearchRequest.getDep());
         searchRequestDto.setToCity(jpSearchRequest.getArr());

@@ -10,7 +10,7 @@ public class JpSearchServiceImpl implements JpSearchService {
     String search_url = "http://106.75.115.170:19093/api/search";
 
     @Override
-    public Object search(String str) {
+    public String search(String str) {
         return HttpRequestUtil.post(search_url,str);
     }
 }
