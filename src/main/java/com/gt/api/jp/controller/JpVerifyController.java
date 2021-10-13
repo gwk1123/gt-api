@@ -26,7 +26,6 @@ public class JpVerifyController {
     public Object search(@RequestBody String str) {
         logger.info("verify请求参数:{}", str);
         VerifyRequest verifyRequest = transformVerifyController(str);
-        logger.info("----verify请求参数---:{}", JSON.toJSONString(verifyRequest));
         return jpVerifyService.verify(JSON.toJSONString(verifyRequest));
     }
 
