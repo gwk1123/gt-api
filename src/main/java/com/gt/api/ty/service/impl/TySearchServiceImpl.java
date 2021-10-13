@@ -5,7 +5,7 @@ import com.gt.api.ty.ota.search.PriceInfo;
 import com.gt.api.ty.ota.search.Routing;
 import com.gt.api.ty.ota.search.SearchResponse;
 import com.gt.api.ty.ota.search.StopInfo;
-import com.gt.api.ty.service.SearchService;
+import com.gt.api.ty.service.TySearchService;
 import com.gt.api.ty.vo.search.*;
 import com.gt.api.utils.HttpRequestUtil;
 import org.slf4j.Logger;
@@ -16,24 +16,20 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 @Service
-public class SearchServiceImpl implements SearchService {
+public class TySearchServiceImpl implements TySearchService {
 
     @Qualifier("ytPoolExecutor")
     @Autowired
     private ThreadPoolTaskExecutor ytPoolExecutor;
     private static String SEARCH_URL = "https://m.ctrip.com/restapi/soa2/14666/json/GetBookingByStationV3ForPC";
     private static String SEARC_ITEM_URL = "https://m.ctrip.com/restapi/soa2/14666/json/GetTrainStopListV3";
-    private Logger logger = LoggerFactory.getLogger(SearchServiceImpl.class);
+    private Logger logger = LoggerFactory.getLogger(TySearchServiceImpl.class);
 
     @Override
     public SearchResponse search(SearchRequestDto searchRequestDto) {
