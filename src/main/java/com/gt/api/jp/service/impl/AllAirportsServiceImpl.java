@@ -42,7 +42,10 @@ public class AllAirportsServiceImpl extends ServiceImpl<AllAirportsMapper, AllAi
     @Override
     public List<AllAirports> getAllAirportsByKeyword(String keyword){
         QueryWrapper<AllAirports> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda().like(!StringUtils.isEmpty(keyword), AllAirports::getCity, keyword);
+        queryWrapper.lambda().like(!StringUtils.isEmpty(keyword), AllAirports::getCity, keyword)
+        .or().like(!StringUtils.isEmpty(keyword), AllAirports::getCode, keyword)
+        .or().like(!StringUtils.isEmpty(keyword), AllAirports::getAirport, keyword)
+        .or().like(!StringUtils.isEmpty(keyword), AllAirports::getCcode, keyword);
         return this.list(queryWrapper);
     }
 
