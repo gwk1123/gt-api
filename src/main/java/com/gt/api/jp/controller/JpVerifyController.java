@@ -25,11 +25,11 @@ public class JpVerifyController {
     @PostMapping("/verify")
     public Object search(@RequestBody String str) {
         logger.info("verify请求参数:{}", str);
-        VerifyRequest verifyRequest = transformVerifyController(str);
+        VerifyRequest verifyRequest = transformVerifyRequest(str);
         return jpVerifyService.verify(JSON.toJSONString(verifyRequest));
     }
 
-    public VerifyRequest transformVerifyController(String str) {
+    public VerifyRequest transformVerifyRequest(String str) {
         VerifyRequestDto verifyRequestDto = JSON.parseObject(str, VerifyRequestDto.class);
         VerifyRequest verifyRequest = new VerifyRequest();
         verifyRequest.setAdultNumber(1);
