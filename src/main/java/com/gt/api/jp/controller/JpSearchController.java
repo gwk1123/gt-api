@@ -7,15 +7,21 @@ import com.gt.api.jp.vo.search.SearchRequestDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 @RestController
 @RequestMapping("/api")
 public class JpSearchController {
 
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMdd");
+    DateTimeFormatter d_tf = DateTimeFormatter.ofPattern("yyyyMMdd");
     private Logger logger = LoggerFactory.getLogger(JpSearchController.class);
     @Autowired
     private JpSearchService jpSearchService;

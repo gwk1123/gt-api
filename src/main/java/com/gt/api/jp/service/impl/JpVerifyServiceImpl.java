@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class JpVerifyServiceImpl implements JpVerifyService {
 
 
-    String verify_url = "http://106.75.115.170:19093/api/verify";
+    String verify_url = "http://localhost:19093/api/verify";
 
     @Override
     public Object verify(String str) {

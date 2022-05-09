@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class JpOrderServiceImpl implements JpOrderService {
 
-    private static String order_url = "http://192.168.1.101:19093/api/order";
+    private static String order_url = "http://localhost:19093/api/order";
 
     @Override
     public String order(String str) {
