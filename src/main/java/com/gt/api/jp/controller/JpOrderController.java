@@ -11,6 +11,7 @@ import com.gt.api.utils.AESOperator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,7 +48,8 @@ public class JpOrderController {
         Routing  routing = JSON.parseObject(JSON.toJSONString(orderResponseDto.getRouting()),Routing.class);
         List<Passenger> passengerList = orderResponseDto.getPassengers().stream().filter(Objects::nonNull).map(passengerDto -> {
             Passenger passenger =new Passenger();
-            passenger.setBirthday(passengerDto.getBirth().replaceAll("-",""));
+            String birthday = StringUtils.isEmpty(passengerDto.getBirth())?"19921010":passengerDto.getBirth().replaceAll("-","");
+            passenger.setBirthday(birthday);
             passenger.setCardNum(passengerDto.getIdNo());
             passenger.setGender(passengerDto.getGender());
             passenger.setName(passengerDto.getName());
