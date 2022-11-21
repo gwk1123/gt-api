@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class JpSearchServiceImpl implements JpSearchService {
 
-    String search_url = "http://localhost:8091/api/search/xcpt";
+    String search_url = "http://localhost:8091/api/ctrip/search/xcpt";
 
     @Override
     public String search(String str) {
